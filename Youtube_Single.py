@@ -193,7 +193,7 @@ def channels_table(selected_channel_name):
     selected_channel=[]
     mydb = client['youtube_db']
     collection = mydb['channel_details']
-    for ch_data in collection.find({'channel_information.channel_name':selected_channel_name},{'_id':0,'channel_information':1}):
+    for ch_data in collection.find({'channel_information.channel_name':selected_channel_name},{'_id':0}):
         selected_channel.append(ch_data['channel_information'])
     channel_df=pd.DataFrame(selected_channel)
 
